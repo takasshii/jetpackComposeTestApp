@@ -5,9 +5,12 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowForward
+import androidx.compose.material.icons.filled.ArrowForwardIos
 import androidx.compose.material.icons.filled.QrCode
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -15,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -66,8 +70,21 @@ fun MainApp() {
                 )
             }
         }
-    ) {
-
+    ) { paddingValues ->
+        Column(Modifier.padding(paddingValues)) {
+            Row(
+                Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 28.dp), verticalAlignment = Alignment.CenterVertically) {
+                Text(text = "New arrivals", fontSize = 20.sp, fontWeight = FontWeight.Bold, modifier = Modifier.weight(1f))
+                TextButton(onClick = { /*TODO*/ }, contentPadding = PaddingValues(0.dp)) {
+                    Text(text = "View All")
+                    Spacer(modifier = Modifier.width(4.dp))
+                    Icon(imageVector = Icons.Filled.ArrowForwardIos, contentDescription = "View Alll")
+                }
+            }
+        }
+        Spacer(modifier = Modifier.height(16.dp))
     }
 }
 
